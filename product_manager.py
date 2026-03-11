@@ -24,4 +24,14 @@ class ProductManager:
             total_value += pr.price * pr.quantity
         print(f"\nTotal value of products: {total_value}")
          
-        
+    #metod za uklanjanje proizvoda
+    def remove_product(self, name):
+        product_found = False
+        for product in self.product_list:
+            if product.name == name:
+                self.product_list.remove(product)
+                product_found = True
+                print(f"Removed product: {name}")
+                break # Stop after the first match is removed
+        if not product_found:
+            print(f"Product {name} is not on list.")
